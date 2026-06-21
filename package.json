@@ -1,0 +1,29 @@
+{
+  "name": "test-devops-app",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "imports": {
+    "#src/*":"./src/*"
+  },
+  "scripts": {
+    "start":"node src/index.js",
+    "dev":"node --watch src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SandunikaAma/test-devops-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SandunikaAma/test-devops-app/issues"
+  },
+  "homepage": "https://github.com/SandunikaAma/test-devops-app#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}
