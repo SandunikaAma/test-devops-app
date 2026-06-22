@@ -1,9 +1,9 @@
 import express from 'express';
 
-const app=express();
+const app = express();
 
-app.get('/', (req,res)=>{
-    res.status(200).send("Hello Sandunika");
+app.get('/', (req, res) => {
+  res.status(200).send('Hello Sandunika');
 });
 
 export default app;
