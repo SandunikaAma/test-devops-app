@@ -1,0 +1,7 @@
+{"level":"info","message":"Hello sandunika","service":"acquisitions-api"}
+{"level":"info","message":"Hello sandunika","service":"acquisitions-api"}
+{"level":"info","message":"Hello sandunika","service":"acquisitions-api"}
+{"level":"info","message":"Hello sandunika","service":"acquisitions-api"}
+{"level":"info","message":"Hello sandunika","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [22/Jun/2026:12:10:46 +0000] \"GET / HTTP/1.1\" 200 15 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [22/Jun/2026:12:10:46 +0000] \"GET /favicon.ico HTTP/1.1\" 404 150 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36\"","service":"acquisitions-api"}
