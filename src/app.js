@@ -23,6 +23,16 @@ app.get('/', (req, res) => {
   logger.info('Hello sandunika');
   res.status(200).send('Hello Sandunika');
 });
+app.get('/health', (req, res) => {
+  res
+    .status(200)
+    .json({
+      status: 'OK',
+      timestamp: new Date().toISOString(),
+      uptime: process.uptime(),
+    });
+});
+
 app.get('/api', (req, res)=>{
   res.status(200).json({
     message:'API is working'
