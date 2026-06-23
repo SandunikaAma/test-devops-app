@@ -1,26 +1,26 @@
-import logger from "#src/config/logger.js";
-import { users } from "#src/models/user.model.js";
-import { getAllUsers , getUserById,   updateUser, deleteUser,} from "#src/services/users.service.js";
+import logger from '#src/config/logger.js';
+import { users } from '#src/models/user.model.js';
+import { getAllUsers , getUserById,   updateUser, deleteUser,} from '#src/services/users.service.js';
 import { userIdSchema, updateUserSchema} from '#validations/users.validation.js';
 import { formatValidationError } from '#utils/format.js';
 
 
 export const fetchAllUsers= async (req, res, next)=>{
-    try{
-        const allUsers=  await getAllUsers();
-        res.json({
-            message:"Getting all users...",
-            users:allUsers,
-            count:allUsers.length
+  try{
+    const allUsers=  await getAllUsers();
+    res.json({
+      message:'Getting all users...',
+      users:allUsers,
+      count:allUsers.length
 
 
-        })
+    });
 
-    }catch(e){
-        logger.error(e);
-        next(e);
-    }
-}
+  }catch(e){
+    logger.error(e);
+    next(e);
+  }
+};
 export const fetchUserById = async (req, res, next) => {
   try {
     logger.info(`Getting user by id: ${req.params.id}`);

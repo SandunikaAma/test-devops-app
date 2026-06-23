@@ -1,47 +1,47 @@
-import logger from "#src/config/logger.js";
-import { db } from "#src/config/database.js";
-import { users } from "#src/models/user.model.js";
-import { eq,  } from "drizzle-orm";
+import logger from '#src/config/logger.js';
+import { db } from '#src/config/database.js';
+import { users } from '#src/models/user.model.js';
+import { eq,  } from 'drizzle-orm';
 
 
 export const getAllUsers = async ()=>{
-    try{
-        return await db.select({
-            id:users.id,
-            name:users.name,
-            email:users.email,
-            password:users.password,
-            created_at:users.created_at,
-            updated_at:users.updated_at,
+  try{
+    return await db.select({
+      id:users.id,
+      name:users.name,
+      email:users.email,
+      password:users.password,
+      created_at:users.created_at,
+      updated_at:users.updated_at,
 
-        }).from(users);
+    }).from(users);
 
-    }catch(e){
-        logger.error('Error getting users', e);
-        throw error;
-    }
-}
+  }catch(e){
+    logger.error('Error getting users', e);
+    throw error;
+  }
+};
 
 export const getUserById = async id =>{
-    try{
-        const [user]=await db.select({
-            id:users.id,
-            name:users.name,
-            email:users.email,
-            password:users.password,
-            created_at:users.created_at,
-            updated_at:users.updated_at
-        }).from (users).where(eq.users.id,id).limit(1);
+  try{
+    const [user]=await db.select({
+      id:users.id,
+      name:users.name,
+      email:users.email,
+      password:users.password,
+      created_at:users.created_at,
+      updated_at:users.updated_at
+    }).from (users).where(eq.users.id,id).limit(1);
 
-        if(!user){
-            throw new error("User not found");
-        }
-
-    }catch(e){
-        logger.error(`Error getting user by id :${id}`, e);
-        throw e;
+    if(!user){
+      throw new error('User not found');
     }
-}
+
+  }catch(e){
+    logger.error(`Error getting user by id :${id}`, e);
+    throw e;
+  }
+};
 export const updateUser = async (id, updates) => {
   try {
     // First check if user exists
