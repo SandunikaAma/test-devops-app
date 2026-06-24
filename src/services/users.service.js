@@ -1,44 +1,46 @@
 import logger from '#src/config/logger.js';
 import { db } from '#src/config/database.js';
 import { users } from '#src/models/user.model.js';
-import { eq,  } from 'drizzle-orm';
+import { eq } from 'drizzle-orm';
 import { error } from 'winston';
 
-
-export const getAllUsers = async ()=>{
-  try{
-    return await db.select({
-      id:users.id,
-      name:users.name,
-      email:users.email,
-      password:users.password,
-      created_at:users.created_at,
-      updated_at:users.updated_at,
-
-    }).from(users);
-
-  }catch(e){
+export const getAllUsers = async () => {
+  try {
+    return await db
+      .select({
+        id: users.id,
+        name: users.name,
+        email: users.email,
+        password: users.password,
+        created_at: users.created_at,
+        updated_at: users.updated_at,
+      })
+      .from(users);
+  } catch (e) {
     logger.error('Error getting users', e);
     throw e;
   }
 };
 
-export const getUserById = async id =>{
-  try{
-    const [user]=await db.select({
-      id:users.id,
-      name:users.name,
-      email:users.email,
-      password:users.password,
-      created_at:users.created_at,
-      updated_at:users.updated_at
-    }).from (users).where(eq.users.id,id).limit(1);
+export const getUserById = async id => {
+  try {
+    const [user] = await db
+      .select({
+        id: users.id,
+        name: users.name,
+        email: users.email,
+        password: users.password,
+        created_at: users.created_at,
+        updated_at: users.updated_at,
+      })
+      .from(users)
+      .where(eq.users.id, id)
+      .limit(1);
 
-    if(!user){
+    if (!user) {
       throw new error('User not found');
     }
-
-  }catch(e){
+  } catch (e) {
     logger.error(`Error getting user by id :${id}`, e);
     throw e;
   }

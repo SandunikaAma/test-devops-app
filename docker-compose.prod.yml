@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      
+
     container_name: test-devops-container
     ports:
       - '${PORT:-3001}:3001'
@@ -42,5 +42,3 @@ services:
 networks:
   test-devops-prod:
     driver: bridge
-
-    

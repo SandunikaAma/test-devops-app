@@ -8,15 +8,20 @@ import authRoutes from '#routes/auth.route.js';
 import usersRoutes from '#routes/users.route.js';
 import securityMiddleware from '#middleware/security.middleware.js';
 
-
 const app = express();
 
 app.use(helmet());
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
-app.use(morgan('combined', {stream:{write:(message)=>{
-  logger.info(message.trim());
-}}}));
+app.use(express.urlencoded({ extended: true }));
+app.use(
+  morgan('combined', {
+    stream: {
+      write: message => {
+        logger.info(message.trim());
+      },
+    },
+  })
+);
 app.use(cors());
 app.use(cookieParser());
 app.use(securityMiddleware);
@@ -26,25 +31,22 @@ app.get('/', (req, res) => {
   res.status(200).send('Hello Sandunika');
 });
 app.get('/health', (req, res) => {
-  res
-    .status(200)
-    .json({
-      status: 'OK',
-      timestamp: new Date().toISOString(),
-      uptime: process.uptime(),
-    });
-});
-
-app.get('/api', (req, res)=>{
   res.status(200).json({
-    message:'API is working'
+    status: 'OK',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
   });
 });
-app.use((req,res)=>{
-  res.status(404).json({
-    error:'Route not found'
-  });
 
+app.get('/api', (req, res) => {
+  res.status(200).json({
+    message: 'API is working',
+  });
+});
+app.use((req, res) => {
+  res.status(404).json({
+    error: 'Route not found',
+  });
 });
 
 app.use('/api/auth', authRoutes);

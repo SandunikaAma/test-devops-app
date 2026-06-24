@@ -1,7 +1,5 @@
 import arcjet, { detectBot, shield, slidingWindow } from '@arcjet/node';
 
-
-
 const aj = arcjet({
   key: process.env.ARCJET_KEY, // Get your key with: npx @arcjet/cli sites get-key
   rules: [
@@ -24,7 +22,7 @@ const aj = arcjet({
       mode: 'LIVE',
       // Tracked by IP address by default, but this can be customized
       // See https://docs.arcjet.com/fingerprints
-      
+
       interval: '2s', // Refill every 10 seconds
       max: 5, // Bucket capacity of 10 tokens
     }),
