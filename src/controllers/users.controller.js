@@ -1,5 +1,4 @@
 import logger from '#src/config/logger.js';
-import { users } from '#src/models/user.model.js';
 import { getAllUsers , getUserById,   updateUser, deleteUser,} from '#src/services/users.service.js';
 import { userIdSchema, updateUserSchema} from '#validations/users.validation.js';
 import { formatValidationError } from '#utils/format.js';

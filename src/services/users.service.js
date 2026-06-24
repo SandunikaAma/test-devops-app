@@ -2,6 +2,7 @@ import logger from '#src/config/logger.js';
 import { db } from '#src/config/database.js';
 import { users } from '#src/models/user.model.js';
 import { eq,  } from 'drizzle-orm';
+import { error } from 'winston';
 
 
 export const getAllUsers = async ()=>{
@@ -18,7 +19,7 @@ export const getAllUsers = async ()=>{
 
   }catch(e){
     logger.error('Error getting users', e);
-    throw error;
+    throw e;
   }
 };
 
